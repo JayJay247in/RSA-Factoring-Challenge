@@ -1,0 +1,13 @@
+import math
+import sys
+
+def factor(n):
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return str(n) + '=' + str(i) + '*' + str(n//i)
+    return str(n) + '=' + str(n) + '*' + '1'
+
+with open(sys.argv[1]) as f:
+    for line in f:
+        n = int(line.strip())
+        print(factor(n))
